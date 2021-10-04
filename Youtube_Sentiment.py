@@ -14,7 +14,7 @@ def google_api(id):
     os.environ["OAUTHLIB_INSECURE_TRANSPORT"] = "1"
     api_service_name = "youtube"
     api_version = "v3"
-    DEVELOPER_KEY = "AIzaSyA-gqYd1J11gAfYMRcs9Sg9OaA9n23JW8Q"
+    DEVELOPER_KEY = "<API KEY>"
 
     youtube = googleapiclient.discovery.build(
         api_service_name, api_version, developerKey=DEVELOPER_KEY)
@@ -30,7 +30,7 @@ def google_api(id):
     print(response)
     return response
 
-
+#Can add any video from Youtube
 response = google_api("9ix7TUGVYIo")
 
 
