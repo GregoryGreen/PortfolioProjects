@@ -10,7 +10,7 @@ SELECT *
 From NashvilleHousingData;
 
 
--- Populate PropertyAddress data
+-- Populate PropertyAddress data: joining the table to itself using UniqueID and ParcelID; to fill out the Null values
 
 SELECT *
 From NashvilleHousingData
@@ -59,7 +59,7 @@ Set PropertySplitCity = SUBSTRING(PropertyAddress, CHARINDEX(',', PropertyAddres
 SELECT *
 From NashvilleHousingData;
 
--- 
+-- Using Parsename: more effient way of splitting the column
 
 SELECT OwnerAddress
 From NashvilleHousingData;
@@ -111,7 +111,7 @@ Set SoldAsVacant = Case When SoldAsVacant = 'Y' THEN 'Yes'
 	 	 ELSE SoldAsVacant
 	     End
 	     
--- Remove Duplicates
+-- Remove Duplicates: using a combination of row_num, CTE, and windows function Partion by (dividing row set into smaller parts)
 
 WITH RowNumCTE AS(
 Select *,
